@@ -7,6 +7,7 @@
  * @version: 1.0
  * @requires jQuery x.x.x
  * @since: 2017.06.26
+ * @see: https://github.com/dinbror/bpopup/blob/master/jquery.bpopup.js
  *==================================================================================================================*/
 ;(function($) {
 	'use strict';
@@ -33,15 +34,34 @@
 		;
 
 		// Public Functions
-		$popup.close = function() {
+		$self.closeSamp = function() {
             close();
 		};
-    
+
+		// Return
+		return $self.each(function() {
+            if($(this).data('bPopup')) return;		// already exists?
+            init();
+        });
+		
+		// Private Functions
+		function init() {
+		}
+		function close() {
+			triggerCall(o.onClose);
+		}
+		function triggerCall(func, arg) {
+			$.isFunction(func) && func.call($self, arg);
+		};
+
     };
 
     // Default Options
     $.fn.bfcSamp.defaults = {
-        onClose: 		false
-        , onOpen: 		false
+        onClose: 			false		// callback function 초기
+        , onOpen: 			false
+		, loadCallback: 	false
     };
+	
+	
 })(jQuery);
