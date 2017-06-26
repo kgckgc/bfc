@@ -34,14 +34,14 @@
 
 		// Public Functions
 		$popup.close = function() {
-			close();
+            close();
 		};
     
-  };
+    };
 
-  // Default Options
-  $.fn.bfcSamp.defaults = {
-      onClose: 		false
-    , onOpen: 		false
-  };
+    // Default Options
+    $.fn.bfcSamp.defaults = {
+        onClose: 		false
+        , onOpen: 		false
+    };
 })(jQuery);
